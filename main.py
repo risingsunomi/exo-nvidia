@@ -168,6 +168,9 @@ async def run_model_cli(node: Node, inference_engine: InferenceEngine, model_nam
 
 
 async def main():
+  if get_system_info() == "Windows":
+    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+
   loop = asyncio.get_running_loop()
 
   # Use a more direct approach to handle signals
