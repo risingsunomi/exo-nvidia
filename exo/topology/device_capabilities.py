@@ -314,7 +314,7 @@ def device_capabilities() -> DeviceCapabilities:
   elif psutil.LINUX:
     return linux_device_capabilities()
   elif psutil.WINDOWS:
-    return
+    return windows_device_capabilities()
   else:
     return DeviceCapabilities(
       model="Unknown Device",
