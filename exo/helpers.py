@@ -31,7 +31,9 @@ def get_system_info():
     return "Unknown Mac architecture"
   if psutil.LINUX:
     return "Linux"
-  return "Non-Mac, non-Linux system"
+  if psutil.WINDOWS:
+    return "Windows"
+  return "Non-Mac, non-Linux, non-Windows system"
 
 def find_available_port(host: str = "", min_port: int = 49152, max_port: int = 65535) -> int:
   used_ports_file = os.path.join(tempfile.gettempdir(), "exo_used_ports")
